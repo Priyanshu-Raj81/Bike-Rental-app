@@ -11,6 +11,11 @@
                     <div class="valid-feedback">Title Looks Good!</div>
                 </div>
                 <div class="mb-3">
+                    <lable for="title" class="form-label">Contatct number</lable>
+                    <input type="number" name="listing[mob]" value="<%= listing.mob %>" class="form-control" required>
+                    <div class="valid-feedback">Looks Good!</div>
+                </div>
+                <div class="mb-3">
                     <lable for="description" class="form-label">Description</lable>
                     <textarea type="text" name="listing[description]" class="form-control"
                         required><%= listing.description %> </textarea>

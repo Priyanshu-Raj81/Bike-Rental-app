@@ -21,4 +21,4 @@ router.post("/", isLoggedIn, validateReview, wrapAsync(listingReview.createRevie
 router.delete("/:reviewId", isReviewAuthor, wrapAsync(listingReview.destroyReview))
 
 
-module.exports = router;git
+module.exports = router;

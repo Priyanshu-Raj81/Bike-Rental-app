@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Wanderer_Website
  
 A full-stack Airbnb-inspired web application named **Wanderer**, designed for exploring and listing rental properties worldwide.
@@ -60,3 +61,6 @@ http://localhost:8080
 ├── data.js               # Sample listing data
 ├── ExpressError.js       # Custom Error Handling
 └── README.md
+=======
+# Bike-Rental-website
+>>>>>>> 5f258e4fdbfdcb2830906b60ed8825c7ed10c802

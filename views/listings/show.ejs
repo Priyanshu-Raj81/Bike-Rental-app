@@ -31,8 +31,7 @@
             class="card-img-top show-img" alt="listing_image">
         <div class="card-body">
             <p class="card-text">
-                <i><b>Owner -
-                    <%= listing.owner.username %>
+                <i><b>Owner - <%= listing.owner.username %>
                     </b></i>
                 <br>
                 <br>
@@ -67,7 +66,7 @@
         <p>Contact :-<%= listing.mob %></p>
         <p>Location :-<%= listing.location %>, <%= listing.country %></p>
 
-    <button class="btn btn-primary" style="background-color: red;"><a href="https://docs.google.com/forms/u/0/create?pli=1" style="text-decoration: none; color: white;"><b>Pay <%= listing.price %></b></a></button>
+    <button class="btn btn-primary" style="background-color: red;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSd-gbcz0ZbObKUFjq1eVX3vIOqmaHzbanWZ0cDgpfOaQPzl4w/viewform?usp=header" style="text-decoration: none; color: white;"><b>Pay</b></a></button>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -167,78 +166,6 @@
     </div>
 </div>
 
-<!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
-<!-- <script>
-    document.getElementById('rzp-button1').onclick = async function(e) {
-        e.preventDefault();
 
-        // Safely get the price, defaulting to 0 if it's not a valid number.
-        const price = Number("<%= listing.price %>") || 0; 
-
-        if (price <= 0) {
-            console.error('Invalid price for payment:', price);
-            alert('This listing does not have a valid price for payment.');
-            return; 
-        }
-
-        const amount = price; 
-
-        try {
-            const response = await fetch('/payment/razorpay-order', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ amount: amount }),
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json();
-                console.error('Server responded with an error:', errorData); 
-                throw new Error(errorData.error || 'An unknown error occurred on the server.');
-            }
-
-            const order = await response.json();
-
-            const options = {
-                key: "<%= process.env.RAZORPAY_KEY_ID %>", 
-                amount: order.amount,
-                currency: order.currency,
-                name: "Wanderer",
-                description: "Payment for Listing",
-                order_id: order.id,
-                handler: async function(response) {
-                    const verifyResponse = await fetch('/payment/razorpay-verify', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            order_id: response.razorpay_order_id,
-                            payment_id: response.razorpay_payment_id,
-                            signature: response.razorpay_signature,
-                        }),
-                    });
-
-                    const result = await verifyResponse.json();
-                    if (result.status === 'success') {
-                        alert('Payment successful!');
-                        window.location.href = '/listings'; 
-                    } else {
-                        alert('Payment failed!');
-                    }
-                },
-                prefill: {
-                    name: "Current User", // You can use `<%= currUser.username %>` if it's available
-                    email: "user@example.com", // You can use `<%= currUser.email %>`
-                },
-                theme: {
-                    color: "#3399cc"
-                }
-            };
-            const rzp1 = new Razorpay(options);
-            rzp1.open();
-        } catch (error) {
-            console.error('Payment initiation failed:', error);
-            alert('Could not start payment. Please try again later. Check the console for details.');
-        }
-    };
-</script> -->
 
 <script src="/js/map.js"></script>
